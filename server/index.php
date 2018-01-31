@@ -9,7 +9,7 @@ error_reporting('E_ERROR');
 # 2.9 inches: https://www.waveshare.com/wiki/2.9inch_e-Paper_Module
 # 4.2 inches: https://www.waveshare.com/wiki/4.2inch_e-Paper_Module
 # 7.5 inches: https://www.waveshare.com/wiki/7.5inch_e-Paper_HAT
-const DISPLAYS = array(	"7.5"=>array("size"=>"640x384","rotate"=>"false"),
+$DISPLAYS = array(	"7.5"=>array("size"=>"640x384","rotate"=>"false"),
 						"4.2"=>array("size"=>"400x300","rotate"=>"false"),
 						"2.9"=>array("size"=>"296x128","rotate"=>"true"));
 						
@@ -28,7 +28,7 @@ if(strlen($_GET['scale']) AND is_numeric($_GET['scale'])){
 }
 						
 $displayType = $_GET['display'];
-if(!isset(DISPLAYS[$displayType])){
+if(!isset($DISPLAYS[$displayType])){
 	echo ("Not a valid display size.");
 	exit;
 }
@@ -51,8 +51,8 @@ foreach ($contents as $content) {
 
 $selectedContent = $allContents[$_GET['content']];
 
-$displayWidth = explode("x",DISPLAYS[$displayType]['size'])[0];
-$displayHeight = explode("x",DISPLAYS[$displayType]['size'])[1];
+$displayWidth = explode("x",$DISPLAYS[$displayType]['size'])[0];
+$displayHeight = explode("x",$DISPLAYS[$displayType]['size'])[1];
 $im = imagecreate($displayWidth, $displayHeight);
 $background_color = ImageColorAllocate ($im, 255, 255, 255);
 $black = imagecolorallocate($im, 0, 0, 0);
@@ -70,7 +70,7 @@ if(is_file($selectedContent)){
 		imagedestroy($im);
 	}
 	else{
-		if(DISPLAYS[$displayType]['rotate'] == "true"){
+		if($DISPLAYS[$displayType]['rotate'] == "true"){
 			$im = imagerotate($im, 90, 0);
 		}
 		$im = imagerotate($im, 0, 0);
