@@ -1,8 +1,8 @@
 <?php
 	// define your settings here
 	const ROOM = 'Raum 267';
-	const TIMES = array("7:30", "8:00", "8:30", "9:00", "9:30", "10:00", "10:30", "11:00", "11:30", "12:00");
-	const DAYS = array("Mo", "Di", "Mi", "Do", "Fr");
+	$TIMES = array("7:30", "8:00", "8:30", "9:00", "9:30", "10:00", "10:30", "11:00", "11:30", "12:00");
+	$DAYS = array("Mo", "Di", "Mi", "Do", "Fr");
 	
 	
 	//YOUR DATA
@@ -21,13 +21,13 @@
 	imageline ($im ,  $cursorX ,$cursorY ,  $cursorX , 1000, $black );
 	$cursorY2 = $cursorY;
 	//
-	foreach(TIMES as $time){
+	foreach($TIMES as $time){
 		$cursorY2 += $scale*1.2;
 		imagettftext($im, 0.5*$scale, 0, 5,$cursorY2, $black, $DEFAULT_FONT['regular'], $time);
 	}
 
 	
-	for($i=0; $i<count(DAYS)-1; $i++){
+	for($i=0; $i<count($DAYS)-1; $i++){
 		$cursorX += $scale*4;
 		imageline ($im ,  $cursorX ,$cursorY ,  $cursorX , 1000, $black );
 	
