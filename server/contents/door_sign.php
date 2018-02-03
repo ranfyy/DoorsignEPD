@@ -1,7 +1,7 @@
 <?php
 	// define your settings here
 	const ROOM = 'Raum 267';
-	const PERSONS = array("John Doe", "Jane Doe", "Otto Normalverbraucher");
+	$PERSONS = array("John Doe", "Jane Doe", "Otto Normalverbraucher");
 	
 	$fontSize = $scale;
 	
@@ -11,7 +11,7 @@
 	imageline ($im , 10 , $cursorY , 1000 , $cursorY , $black );
 	
 	$fontSize = 0.5*$scale;	
-	foreach(PERSONS as $person){
+	foreach($PERSONS as $person){
 		$cursorY = $cursorY+$fontSize*1.5;
 	imagettftext($im, $fontSize, 0, 20, $cursorY, $black, $DEFAULT_FONT['regular'], $person );
 	}
