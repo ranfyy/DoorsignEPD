@@ -4,16 +4,26 @@
 //To stop productionMode (no deep sleep, web config), set http-header X-productionMode: false 
 #header("X-productionMode: false");
 
-error_reporting('E_ERROR');
+#error_reporting('E_ERROR');
 # Supported displays:
-# 2.9 inches: https://www.waveshare.com/wiki/2.9inch_e-Paper_Module
-# 4.2 inches: https://www.waveshare.com/wiki/4.2inch_e-Paper_Module
-# 7.5 inches: https://www.waveshare.com/wiki/7.5inch_e-Paper_HAT
-const DISPLAYS = array(	"7.5"=>array("size"=>"640x384","rotate"=>"false"),
-						"4.2"=>array("size"=>"400x300","rotate"=>"false"),
-						"2.9"=>array("size"=>"296x128","rotate"=>"true"));
+# 1.54 inches: https://www.waveshare.com/wiki/1.54inch_e-Paper_Module
+#  2.7 inches: https://www.waveshare.com/wiki/2.7inch_e-Paper_HAT
+#  2.9 inches: https://www.waveshare.com/wiki/2.9inch_e-Paper_Module
+#  4.2 inches: https://www.waveshare.com/wiki/4.2inch_e-Paper_Module
+#  7.5 inches: https://www.waveshare.com/wiki/7.5inch_e-Paper_HAT
+const DISPLAYS = array(	
+	"7.5"	=> array("size"=>"640x384","rotate"=>"false"),
+	"4.2"	=> array("size"=>"400x300","rotate"=>"false"),
+	"2.9"	=> array("size"=>"296x128","rotate"=>"true"),
+	"2.7"	=> array("size"=>"264x176","rotate"=>"true"),
+	"1.54"	=> array("size"=>"200x200","rotate"=>"false"),
+);
 						
-$DEFAULT_FONT = array("regular"=>realpath("./fonts/LiberationSans-Regular.ttf"),"bold"=>realpath("./fonts/LiberationSans-Bold.ttf"),"italic"=>realpath("./fonts/LiberationSans-Italic.ttf"));
+$DEFAULT_FONT = array(
+	"regular"=>realpath("./fonts/LiberationSans-Regular.ttf"),
+	"bold"=>realpath("./fonts/LiberationSans-Bold.ttf"),
+	"italic"=>realpath("./fonts/LiberationSans-Italic.ttf"),
+);
 	
 if (!extension_loaded('gd')) {
 	echo "GD library is not installed. Please install GD on your server (http://php.net/manual/de/image.installation.php)";
