@@ -23,6 +23,7 @@ $DEFAULT_FONT = array(
 	"regular"	=> realpath("./fonts/LiberationSans-Regular.ttf"),
 	"bold"		=> realpath("./fonts/LiberationSans-Bold.ttf"),
 	"italic"	=> realpath("./fonts/LiberationSans-Italic.ttf"),
+	"notomono"	=> "fonts/NotoMono-Regular.ttf",
 );
 	
 if (!extension_loaded('gd')) {
