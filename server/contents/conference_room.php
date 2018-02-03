@@ -37,7 +37,7 @@
 	$cursorX = -$scale*3;
 	for($i=0; $i<5; $i++){
 		$cursorX += $scale*4;
-		imagettftext($im, 0.5*$scale, 0, $cursorX+50, $cursorY, $black, $DEFAULT_FONT['regular'], DAYS[$i]);
+		imagettftext($im, 0.5*$scale, 0, $cursorX+50, $cursorY, $black, $DEFAULT_FONT['regular'], $DAYS[$i]);
 	}
 
 	//Write Table cells with bookings
