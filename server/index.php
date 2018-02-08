@@ -32,6 +32,13 @@ if (!extension_loaded('gd')) {
 }
 
 
+$lCli = false;
+if( PHP_SAPI == "cli" ){
+        $lCli = true;
+        $setting = parse_ini_file( "config.ini", true );
+        $_GET = $setting["param"];
+}
+
 if(strlen($_GET['scale']) AND is_numeric($_GET['scale'])){
 	$scale = $_GET['scale'];
 }else{
@@ -77,7 +84,11 @@ if(is_file($selectedContent)){
 	
 	if($_GET['debug'] == 'true'){
 		header("Content-type: image/png");
-		imagepng($im);
+		if( $lCli ) {
+			imagepng( $im, "sample.png" );
+        } else {
+			imagepng($im);
+        }
 		imagedestroy($im);
 	}
 	else{
