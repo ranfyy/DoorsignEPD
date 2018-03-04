@@ -16,6 +16,7 @@ $DISPLAYS = array(
 	"4.2"	=> array("size"=>"400x300","rotate"=>"false"),
 	"2.9"	=> array("size"=>"296x128","rotate"=>"true"),
 	"2.7"	=> array("size"=>"264x176","rotate"=>"true"),
+	"2.7landscape"	=> array("size"=>"176x264","rotate"=>"false"),
 	"1.54"	=> array("size"=>"200x200","rotate"=>"false"),
 );
 						
@@ -82,23 +83,22 @@ if(is_file($selectedContent)){
 }
 	
 	
+	if($DISPLAYS[$displayType]['rotate'] == "true"){
+		$im = imagerotate($im, 90, 0);
+	}
 	if($_GET['debug'] == 'true'){
-		header("Content-type: image/png");
 		if( $lCli ) {
 			imagepng( $im, "sample.png" );
-        } else {
+    		} else {
+			header("Content-type: image/png");
 			imagepng($im);
-        }
-		imagedestroy($im);
+    		}
 	}
 	else{
-		if($DISPLAYS[$displayType]['rotate'] == "true"){
-			$im = imagerotate($im, 90, 0);
-		}
-		$im = imagerotate($im, 0, 0);
 		
 		echo rawImage($im);
 	}
+	imagedestroy($im);
 
 function rawImage($im) {
 	$bits = "";
