@@ -4,18 +4,19 @@ define( "DEBUG", false );
 
 $fontSize = 0.5 *$scale;
 $cursorY  = $fontSize *1.5;
+$cursorX  = $fontSize * .5;
 $green = imagecolorallocate($im, 0, 255, 0);
 $blue  = imagecolorallocate($im, 0, 0, 255);
 
+$dst_x = $displayWidth  - $cursorX;
+$dst_y = $displayHeight - $cursorY;
 $arr = file( "sample.txt" );
 foreach( $arr as $line ) {
     $line = str_replace( "\t", str_repeat( " ", 4 ), $line );
-    imagettftext($im, $fontSize, 0, $fontSize*1.5, $cursorY, $black, $DEFAULT_FONT['notomono'], $line );
-    $cursorY += $fontSize*1.5;
+    imagettftext($im, $fontSize, 0, $cursorX, $cursorY, $black, $DEFAULT_FONT['notomono'], $line );
+    $cursorY += $fontSize *1.5;
 }
 
-$dst_x = $displayWidth  - $cursorY;
-$dst_y = $displayHeight - $cursorY;
 // right side
 $bg = $background_color;
 if( DEBUG ) $bg = $blue;
