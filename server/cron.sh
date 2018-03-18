@@ -5,7 +5,7 @@ pushd $HOME/src/darksky/
 popd
 
 pushd $DIRTO
-    # top -b -n 1 -c > sample.txt
+    # https://www.waveshare.com/wiki/File:2.7inch-e-paper-hat-code.7z
     php index.php
     DIRTO="$HOME/src/raspberrypi/python/"
     cp sample.png $DIRTO
